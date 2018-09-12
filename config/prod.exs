@@ -18,6 +18,24 @@ config :kiyo_sandbox, KiyoSandboxWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :project_name, KiyoSandbox.Endpoint,
+  http: [port: {:system, "PORT"}, compress: true],
+  url: [scheme: "http", host: System.get_env("HOST"), port: {:system, "PORT"}],
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  code_reloader: false,
+  cache_static_manifest: "priv/static/manifest.json",
+  server: true
+
+config :project_name, KiyoSandbox.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: System.get_env("RDS_DB_NAME"),
+  username: System.get_env("RDS_USERNAME"),
+  password: System.get_env("RDS_PASSWORD"),
+  hostname: System.get_env("RDS_HOSTNAME"),
+  port: System.get_env("RDS_PORT") || 5432,
+  pool_size: 20,
+  ssl: true
+
 # Do not print debug messages in production
 config :logger, level: :info
 
