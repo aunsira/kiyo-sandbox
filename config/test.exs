@@ -17,3 +17,5 @@ config :kiyo_sandbox, KiyoSandbox.Repo,
   database: "kiyo_sandbox_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :bcrypt_elixir, :log_round, 4
