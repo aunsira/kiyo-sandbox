@@ -16,7 +16,7 @@ use Mix.Config
 config :kiyo_sandbox, KiyoSandboxWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json",
+  # cache_static_manifest: "priv/static/cache_manifest.json",
   http: [port: {:system, "PORT"}, compress: true],
   url: [scheme: "http", host: System.get_env("HOST"), port: {:system, "PORT"}],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
@@ -24,7 +24,7 @@ config :kiyo_sandbox, KiyoSandboxWeb.Endpoint,
   cache_static_manifest: "priv/static/manifest.json",
   server: true
 
-config :project_name, KiyoSandbox.Repo,
+config :kiyo_sandbox, KiyoSandbox.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: System.get_env("RDS_DB_NAME"),
   username: System.get_env("RDS_USERNAME"),
@@ -77,4 +77,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
