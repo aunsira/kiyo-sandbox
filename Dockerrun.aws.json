@@ -1,0 +1,23 @@
+gnoon{
+  "AWSEBDockerrunVersion": 1,
+  "volumes": [
+    {
+      "name": "kiyo-sandbox",
+      "host": {
+        "sourcePath": "/app"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "kiyo-sandbox",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 4000
+        }
+      ]
+    }
+  ]
+}
