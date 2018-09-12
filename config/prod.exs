@@ -16,9 +16,7 @@ use Mix.Config
 config :kiyo_sandbox, KiyoSandboxWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
-
-config :project_name, KiyoSandbox.Endpoint,
+  cache_static_manifest: "priv/static/cache_manifest.json",
   http: [port: {:system, "PORT"}, compress: true],
   url: [scheme: "http", host: System.get_env("HOST"), port: {:system, "PORT"}],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
